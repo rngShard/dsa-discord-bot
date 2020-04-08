@@ -8,21 +8,41 @@ class SkillCheck(commands.Cog):
         self.bot = bot
         self._last_roll = None
     
-    def roll_dX(self, sides: int):
-        return random.randint(0, sides)
+    def rollStringToValues(self, rollString):
+        roll_times, roll_sides = None, None
+        for split_char in ['D','d','W','w']:
+            roll_split = rollString.split(split_char)
+            if roll_split[0] != rollString:
+                roll_times, roll_sides = int(roll_split[0]), int(roll_split[1])
+                break
+        return roll_times, roll_sides
 
+    def roll_XdY(self, times, sides: int):
+        # print(f'Rolling {times} x {sides}')
+        rolls = []
+        for _ in range(times):
+            roll = random.randint(0, sides)
+            rolls.append(roll)
+        return rolls
 
     @commands.command()
     async def roll(self, ctx, roll: str):
         """Translate str into rolls"""
-        r = re.compile(r'\d*[dw]\d*')
+        r = re.compile(r'\d*[DdWw]\d*')
 
         if r.match(roll) is None:
             await ctx.send(f'"{roll}" is not a valid input, please use e.g. 1d20 / 3d6 or 1w20 / 3w6')
         else:
+            roll_times, roll_sides = self.rollStringToValues(roll)
+            roll_values = self.roll_XdY(roll_times, roll_sides)
             self._last_roll = roll
-            await ctx.send(f'rolling {roll}')
+            await ctx.send(f'Rolling {roll}:\t{roll_values}')
 
-    # async def reroll(self, ctx):
-    #     if self._last_roll is not None:
-    #         await
+    @commands.command()
+    async def reroll(self, ctx):
+        if self._last_roll is None:
+            await ctx.send('No rolls happened yet; cannot re-roll.')
+        else:            
+            roll_times, roll_sides = self.rollStringToValues(self._last_roll)
+            roll_values = self.roll_XdY(roll_times, roll_sides)
+            await ctx.send(f'Re-rolling {self._last_roll}:\t{roll_values}')

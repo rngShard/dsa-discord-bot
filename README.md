@@ -3,7 +3,7 @@
 This bot shall be used for the German P&P role-playing game "The Dark Eye" (German: "Das Schwarze Auge (DSA)") when being played on a Discord-Server.
 
 Included functionality:
-- [nothing so far]
+- simple skill-check rolling (with "3d20" / "1W6")
 - WIP:
 	- Creating & storing charakter-sheets
 	- Rolling skill-checks based on character attributes
