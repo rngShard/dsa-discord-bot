@@ -3,6 +3,8 @@ from discord.ext import commands
 import random
 import re
 
+MAX_RESULT_LEN = 2000
+
 class SkillCheck(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -21,9 +23,15 @@ class SkillCheck(commands.Cog):
         # print(f'Rolling {times} x {sides}')
         rolls = []
         for _ in range(times):
-            roll = random.randint(0, sides)
+            roll = random.randint(1, sides)
             rolls.append(roll)
         return rolls
+
+    async def send(self, ctx, msg):
+        if len(msg) >= MAX_RESULT_LEN:
+            await ctx.send(f'Result is a too-long respone (Discord-limit is {MAX_RESULT_LEN} characters)')
+        else:
+            await ctx.send(msg)
 
     @commands.command()
     async def roll(self, ctx, roll: str):
@@ -36,7 +44,7 @@ class SkillCheck(commands.Cog):
             roll_times, roll_sides = self.rollStringToValues(roll)
             roll_values = self.roll_XdY(roll_times, roll_sides)
             self._last_roll = roll
-            await ctx.send(f'Rolling {roll}:\t{roll_values}')
+            await self.send(ctx, f'Rolling {roll}:\t{roll_values}')
 
     @commands.command()
     async def reroll(self, ctx):
@@ -45,4 +53,4 @@ class SkillCheck(commands.Cog):
         else:            
             roll_times, roll_sides = self.rollStringToValues(self._last_roll)
             roll_values = self.roll_XdY(roll_times, roll_sides)
-            await ctx.send(f'Re-rolling {self._last_roll}:\t{roll_values}')
+            await self.send(ctx, f'Re-rolling {self._last_roll}:\t{roll_values}')

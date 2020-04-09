@@ -30,7 +30,7 @@ mkdir .venv
 py -m  venv .venv		# create venv
 .\.venv\Scripts\activate		# enter venv
 pip3 install -r .\requirements.txt		# install dependencies
-cp config.yaml.example config.yaml		# make copy of config-file
+copy config.yaml.example config.yaml		# make copy of config-file
 # add details in config.yaml
 python .\bot\bot.py		# start bot
 ```
