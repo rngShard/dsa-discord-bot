@@ -2,8 +2,23 @@ import discord
 from discord.ext import commands
 import random
 import re
+import logging
 
 MAX_RESULT_LEN = 2000
+
+class Dice:
+    @staticmethod
+    def roll_dX(sides: int):
+        logging.info(f'Rolling D{sides}')
+        return random.randint(1, sides)
+    @staticmethod
+    def roll_XdY(times, sides: int):
+        logging.info(f'Rolling {times}D{sides}')
+        rolls = []
+        for _ in range(times):
+            roll = random.randint(1, sides)
+            rolls.append(roll)
+        return rolls
 
 class DiceRoller(commands.Cog):
     def __init__(self, bot):
@@ -18,14 +33,6 @@ class DiceRoller(commands.Cog):
                 roll_times, roll_sides = int(roll_split[0]), int(roll_split[1])
                 break
         return roll_times, roll_sides
-
-    def roll_XdY(self, times, sides: int):
-        # print(f'Rolling {times} x {sides}')
-        rolls = []
-        for _ in range(times):
-            roll = random.randint(1, sides)
-            rolls.append(roll)
-        return rolls
 
     async def send(self, ctx, msg):
         if len(msg) >= MAX_RESULT_LEN:
@@ -42,7 +49,7 @@ class DiceRoller(commands.Cog):
             await ctx.send(f'"{roll}" is not a valid input, please use e.g. 1d20 / 3d6 or 1w20 / 3w6')
         else:
             roll_times, roll_sides = self.rollStringToValues(roll)
-            roll_values = self.roll_XdY(roll_times, roll_sides)
+            roll_values = Dice.roll_XdY(roll_times, roll_sides)
             self._last_roll = roll
             await self.send(ctx, f'Rolling {roll}:\t{roll_values}')
 

@@ -3,6 +3,7 @@ from discord.ext import commands
 import logging
 import os
 import yaml
+from .diceRoller import Dice
 
 EIGENSCHAFTEN = ['MU', 'KL', 'IN', 'CH', 'FF', 'GE', 'KO', 'KK']
 DIR_NAME = os.path.dirname(__file__)
@@ -16,7 +17,6 @@ class CharacterAction(commands.Cog):
     async def check(self, ctx, check: str, char: str):
         """Check Kopfwert / Talent for character"""
         check = check.upper()
-        char = char.lower()
 
         errors = []
         if not check in EIGENSCHAFTEN:
@@ -31,5 +31,5 @@ class CharacterAction(commands.Cog):
             with open(os.path.join(CHAR_DIR, f'{char}.yaml')) as char_file:
                 char_obj = yaml.full_load(char_file)
                 eig_value = char_obj[check]
-                # TODO: implement
-                await ctx.send(f'<{char}> Checking {check} ({eig_value}): 42. Check successful / unsuccessful...')
+                roll = Dice.roll_dX(20)
+                await ctx.send(f'<{char}> Checking {check} ({eig_value}): {roll}. {"Success!" if roll <= eig_value else "Failure..."}')
