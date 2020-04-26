@@ -59,5 +59,5 @@ class DiceRoller(commands.Cog):
             await ctx.send('No rolls happened yet; cannot re-roll.')
         else:            
             roll_times, roll_sides = self.rollStringToValues(self._last_roll)
-            roll_values = self.roll_XdY(roll_times, roll_sides)
+            roll_values = Dice.roll_XdY(roll_times, roll_sides)
             await self.send(ctx, f'Re-rolling {self._last_roll}:\t{roll_values}')

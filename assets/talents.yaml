@@ -1,0 +1,15 @@
+--- # Koerperliche Talente
+akrobatik:
+  checks: ["MU", "GE", "KK"]
+  eBE: "x2"
+athletik:
+  checks: ["GE", "KO", "KK"]
+  eBE: "x2"
+
+--- # Gesellschaftliche Talent
+betoeren:
+  checks: ["IN", "CH", "CH"] 
+etikette:
+  checks: ["KL", "IN", "CH"]
+
+--- # Natur Talente
