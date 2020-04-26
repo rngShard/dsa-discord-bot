@@ -5,7 +5,7 @@ import re
 
 MAX_RESULT_LEN = 2000
 
-class SkillCheck(commands.Cog):
+class DiceRoller(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self._last_roll = None

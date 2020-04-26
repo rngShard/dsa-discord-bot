@@ -2,3 +2,6 @@
 .vscode
 config.yaml
 *.pyc
+
+chars/
+log.txt
