@@ -14,9 +14,11 @@ class CharacterAction(commands.Cog):
         self.bot = bot
   
     @commands.command()
-    async def check(self, ctx, check: str, char: str):
+    async def check(self, ctx, check: str, char='CTX_AUTHOR_DISPLAY_NAME'):
         """Check Kopfwert / Talent for character"""
         check = check.upper()
+        if char == 'CTX_AUTHOR_DISPLAY_NAME':
+            char = ctx.author.display_name
 
         errors = []
         if not check in EIGENSCHAFTEN:
