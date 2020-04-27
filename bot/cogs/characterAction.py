@@ -14,15 +14,49 @@ CHECKS = {
     'SKILLS': yaml.full_load(open(os.path.join(ASSETS_DIR, 'skills.yaml')))
 }
 
+class SkillCheck:
+    @staticmethod
+    def checkSkill(attrs: [int, int, int], skill_value: int, difficulty=0):
+        e_value = skill_value + difficulty
+        if e_value < 0:
+            attrs = [attrs[i] - abs(e_value) for i in range(3)]
+            e_value = 0
+
+        rolls = []
+        for _ in range(3):
+            rolls.append(Dice.roll_dX(20))
+        
+        msg = ""
+        if rolls.count(1) == 2:
+            msg = "Critical success!"
+        elif rolls.count(1) == 3:
+            msg = "Whaaaaaaaaaaaaaaaaat?!?!?"
+        elif rolls.count(20) == 2:
+            msg = "Epic failure ..."
+        elif rolls.count(20) == 3:
+            msg = "You dead son."
+        else:
+            for i in range(3):
+                if rolls[i] > attrs[i]:
+                    e_value -= rolls[i] - attrs[i]
+            if e_value < 0:
+                msg = "Failure..."
+            elif e_value == 0:
+                msg = "Success! (Close one...)"
+            else:
+                msg = "Success!"
+        return rolls, min(e_value, skill_value), msg
+
 class CharacterAction(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+
+    def pre(self, num: int):
+        return "+" if num >= 0 else ""
   
     @commands.command()
-    async def check(self, ctx, check: str, char='CTX_AUTHOR_DISPLAY_NAME'):
+    async def check(self, ctx, check: str, difficulty = 0, char = 'CTX_AUTHOR_DISPLAY_NAME'):
         """Check Kopfwert / Talent for character"""
-        check = check.upper()
-
         char_obj = None
         if char == 'CTX_AUTHOR_DISPLAY_NAME':
             char = ctx.author.display_name
@@ -32,15 +66,32 @@ class CharacterAction(commands.Cog):
             return
         else:
             char_obj = yaml.full_load(open(os.path.join(CHAR_DIR, f'{char}.yaml')))
-            logging.info(f'.check {check} {char}')
+            logging.info(f'.check check={check} difficulty={difficulty} char={char}')
 
-        if check in CHECKS['ATTRIBUTES']:
-            eig_value = char_obj[check]
+        if check.upper() in CHECKS['ATTRIBUTES']:
+            attr_value = char_obj[check.upper()]
             roll = Dice.roll_dX(20)
-            await ctx.send(f'<{char}> Checking {check} ({eig_value}): {roll}. {"Success!" if roll <= eig_value else "Failure..."}')
-        elif check in CHECKS['SKILLS'].keys():
-            # TODO: implement 
-            await ctx.send(f'<{char}> Checking {check}: Todo')
+            res = attr_value + difficulty - roll
+            msg = "Success!" if res >= 0 else "Failure..."
+            await ctx.send(f'<{char}> Checking {check.upper()} ({attr_value}) {self.pre(difficulty)}{difficulty}:\nRolling {roll} --> {msg}\nResult = {self.pre(res)}{res}')
+        
+        elif check.lower() in CHECKS['SKILLS'].keys():
+            skill = CHECKS['SKILLS'][check.lower()]
+            attrs = [char_obj[attr] for attr in skill['attrs']]
+            try:
+                skill_value = char_obj[check.lower()]
+            except KeyError:
+                await ctx.send(f'<{char}> Cannot check {check}, because you do not know that skill.')
+                return
+            try:
+                eBE = skill['eBE']
+                print("Behinderung not implemented yet")   # TODO
+            except KeyError:
+                pass    # no BE to be accounted for
+            
+            rolls, res, msg = SkillCheck.checkSkill(attrs, skill_value, difficulty)
+            await ctx.send(f'<{char}> Checking {check} {skill["attrs"]}={attrs} ({skill_value}) {self.pre(difficulty)}{difficulty}:\nRolling {rolls} --> {msg}\nResult = {self.pre(res)}{res}')
+        
         else:
             logging.warning(f'Invalid .check command, args: {check}, {char}')
             await ctx.send(f'Error: "{check}" is not a valid check.')
