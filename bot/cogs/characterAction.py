@@ -4,6 +4,7 @@ import logging
 import os
 import yaml
 from .diceRoller import Dice
+import re
 
 DIR_NAME = os.path.dirname(__file__)
 CHAR_DIR = os.path.join(DIR_NAME, '../../chars')
@@ -46,6 +47,14 @@ class SkillCheck:
             else:
                 msg = "Success!"
         return rolls, min(e_value, skill_value), msg
+    @staticmethod
+    def getTrueBE(BE: int, eBE: str):
+        if re.compile(r'x\d').match(eBE):
+            times = int(eBE[1])
+            return BE * times
+        elif re.compile(r'-\d').match(eBE):
+            minus = int(eBE[1])
+            return BE - minus
 
 class CharacterAction(commands.Cog):
     def __init__(self, bot):
@@ -73,9 +82,10 @@ class CharacterAction(commands.Cog):
             roll = Dice.roll_dX(20)
             res = attr_value + difficulty - roll
             msg = "Success!" if res >= 0 else "Failure..."
-            await ctx.send(f'<{char}> Checking {check.upper()} ({attr_value}) {self.pre(difficulty)}{difficulty}:\nRolling {roll} --> {msg}\nResult = {self.pre(res)}{res}')
+            await ctx.send(f'<{char}> Checking {check.upper()} ({attr_value}) {self.pre(difficulty)}{difficulty}:\nRolling {roll} >> {msg}\nResult = {self.pre(res)}{res}')
         
         elif check.lower() in CHECKS['SKILLS'].keys():
+            comment, true_BE = "", None
             skill = CHECKS['SKILLS'][check.lower()]
             attrs = [char_obj[attr] for attr in skill['attrs']]
             try:
@@ -83,14 +93,20 @@ class CharacterAction(commands.Cog):
             except KeyError:
                 await ctx.send(f'<{char}> Cannot check {check}, because you do not know that skill.')
                 return
+                
             try:
                 eBE = skill['eBE']
-                print("Behinderung not implemented yet")   # TODO
+                BE = char_obj['BE']
+                true_BE = SkillCheck.getTrueBE(BE, eBE)
+                old_difficulty = difficulty
+                difficulty -= true_BE
+                comment = f'(info) BE-relevant skill, difficulty adjusted for BE={BE} & eBE={eBE}, {self.pre(old_difficulty)}{old_difficulty} >> {self.pre(difficulty)}{difficulty}\n'
             except KeyError:
                 pass    # no BE to be accounted for
             
             rolls, res, msg = SkillCheck.checkSkill(attrs, skill_value, difficulty)
-            await ctx.send(f'<{char}> Checking {check} {skill["attrs"]}={attrs} ({skill_value}) {self.pre(difficulty)}{difficulty}:\nRolling {rolls} --> {msg}\nResult = {self.pre(res)}{res}')
+
+            await ctx.send(f'<{char}> Checking {check} {skill["attrs"]}={attrs} ({skill_value}) {self.pre(difficulty)}{difficulty}:\n{comment}Rolling {rolls} >> {msg}\nResult = {self.pre(res)}{res}')
         
         else:
             logging.warning(f'Invalid .check command, args: {check}, {char}')

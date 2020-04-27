@@ -43,7 +43,7 @@ class DiceRoller(commands.Cog):
     @commands.command()
     async def roll(self, ctx, roll: str):
         """Translate str into rolls"""
-        r = re.compile(r'\d*[DdWw]\d*')
+        r = re.compile(r'\d+[DdWw]\d+')
 
         if r.match(roll) is None:
             await ctx.send(f'"{roll}" is not a valid input, please use e.g. 1d20 / 3d6 or 1w20 / 3w6')
