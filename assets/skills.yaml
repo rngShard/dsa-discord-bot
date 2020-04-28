@@ -1,85 +1,84 @@
----
 # Koerperliche Talente
-  akrobatik:
-    attrs: [MU, GE, KK]
-    eBE: "x2"
-  athletik:
-    attrs: [GE, KO, KK]
-    eBE: "x2"
-  fliegen:
-    attrs: [MU, IN, GE]
-    eBE: "x1"
-  gaukeleien:
-    attrs: [MU, CH, FF]
-    eBE: "x2"
-  klettern:
-    attrs: [MU, GE, KK]
-    eBE: "x2"
-  koerperbeherrschung:
-    attrs: [MU, IN, GE]
-  körperbeherrschung:
-    attrs: [MU, IN, GE]
-    eBE: "x2"
-  reiten:
-    attrs: [CH, GE, KK]
-    eBE: "-2"
-  schleichen:
-    attrs: [MU, IN, GE]
-    eBE: "x1"
-  schwimmen:
-    attrs: [GE, KO, KK]
-    eBE: "x2"
-  selbstbeherrschung:
-    attrs: [MU, KO, KK]
-  sich_verstecken:
-    attrs: [MU, IN, GE]
-    eBE: "-2"
-  singen:
-    attrs: [IN, CH, CH]
-    eBE: "-3"
-  sinnenschaerfe:
-    attrs: [KL, IN, IN]
-  sinnenschärfe:
-    attrs: [KL, IN, IN]
-  skifahren:
-    attrs: [GE, GE, KO]
-    eBE: "-2"
-  stimmen_imitieren:
-    attrs: [KL, IN, CH]
-    eBE: "-4"
-  tanzen:
-    attrs: [CH, GE, GE]
-    eBE: "x2"
-  taschendiebstahl:
-    attrs: [MU, IN, FF]
-    eBE: "x2"
-  zechen:
-    attrs: [IN, KO, KK]
+akrobatik:
+  attrs: [MU, GE, KK]
+  eBE: "x2"
+athletik:
+  attrs: [GE, KO, KK]
+  eBE: "x2"
+fliegen:
+  attrs: [MU, IN, GE]
+  eBE: "x1"
+gaukeleien:
+  attrs: [MU, CH, FF]
+  eBE: "x2"
+klettern:
+  attrs: [MU, GE, KK]
+  eBE: "x2"
+koerperbeherrschung:
+  attrs: [MU, IN, GE]
+körperbeherrschung:
+  attrs: [MU, IN, GE]
+  eBE: "x2"
+reiten:
+  attrs: [CH, GE, KK]
+  eBE: "-2"
+schleichen:
+  attrs: [MU, IN, GE]
+  eBE: "x1"
+schwimmen:
+  attrs: [GE, KO, KK]
+  eBE: "x2"
+selbstbeherrschung:
+  attrs: [MU, KO, KK]
+sich_verstecken:
+  attrs: [MU, IN, GE]
+  eBE: "-2"
+singen:
+  attrs: [IN, CH, CH]
+  eBE: "-3"
+sinnenschaerfe:
+  attrs: [KL, IN, IN]
+sinnenschärfe:
+  attrs: [KL, IN, IN]
+skifahren:
+  attrs: [GE, GE, KO]
+  eBE: "-2"
+stimmen_imitieren:
+  attrs: [KL, IN, CH]
+  eBE: "-4"
+tanzen:
+  attrs: [CH, GE, GE]
+  eBE: "x2"
+taschendiebstahl:
+  attrs: [MU, IN, FF]
+  eBE: "x2"
+zechen:
+  attrs: [IN, KO, KK]
 # Gesellschaftliche Talent
-  betoeren:
-    attrs: [IN, CH, CH] 
-  betören:
-    attrs: [IN, CH, CH] 
-  etikette:
-    attrs: [KL, IN, CH]
-  gassenwissen:
-    attrs: [KL, IN, CH]
-  lehren:
-    attrs: [KL, IN, CH]
-  menschenkenntnis:
-    attrs: [KL, IN, CH]
-  schauspielerei:
-    attrs: [MU, IN, CH]
-  schriftlicher_ausdruck:
-    attrs: [KL, IN, IN]
-  sich_verkleiden:
-    attrs: [MU, CH, GE]
-  ueberreden:
-    attrs: [MU, IN, CH]
-  überreden:
-    attrs: [MU, IN, CH]
-  ueberzeugen:
-    attrs: [KL, IN, CH]
-  überzeugen:
-    attrs: [KL, IN, CH]
+betoeren:
+  attrs: [IN, CH, CH] 
+betören:
+  attrs: [IN, CH, CH] 
+etikette:
+  attrs: [KL, IN, CH]
+gassenwissen:
+  attrs: [KL, IN, CH]
+lehren:
+  attrs: [KL, IN, CH]
+menschenkenntnis:
+  attrs: [KL, IN, CH]
+schauspielerei:
+  attrs: [MU, IN, CH]
+schriftlicher_ausdruck:
+  attrs: [KL, IN, IN]
+sich_verkleiden:
+  attrs: [MU, CH, GE]
+ueberreden:
+  attrs: [MU, IN, CH]
+überreden:
+  attrs: [MU, IN, CH]
+ueberzeugen:
+  attrs: [KL, IN, CH]
+überzeugen:
+  attrs: [KL, IN, CH]
 # Natur Talente
