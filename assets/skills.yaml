@@ -82,3 +82,72 @@ ueberzeugen:
 überzeugen:
   attrs: [KL, IN, CH]
 # Natur Talente
+fährtensuchen:
+  attrs: [KL, IN, KO]
+faehrtensuchen:
+  attrs: [KL, IN, KO]
+fallenstellen:
+  attrs: [KL, FF, KK]
+fesseln/entfesseln:
+  attrs: [FF, GE, KK]
+fischen/angeln:
+  attrs: [IN, FF, KK]
+orientierung:
+  attrs: [KL, IN, IN]
+wettervorhersage:
+  attrs: [KL, IN, IN]
+wildnisleben:
+  attrs: [IN, GE, KO]
+# Wissens Talente
+anatomie:
+  attrs: [MU, KL, FF]
+baukunst:
+  attrs: [KL, KL, FF]
+brett-/kartenspiel
+  attrs: [KL, KL, IN]
+geographie:
+  attrs: [KL, KL, IN]
+geschichtswissen:
+  attrs: [KL, KL, IN]
+gesteinskunde:
+  attrs: [KL, IN, FF]
+götter/kulte:
+  attrs: [KL, KL, IN]
+goetter/kulte:
+  attrs: [KL, KL, IN]
+heraldik:
+  attrs: [KL, KL, FF]
+hüttenkunde:
+  attrs: [KL, IN, KO]
+huettenkunde:
+  attrs: [KL, IN, KO]
+kriegskunst:
+  attrs: [MU, KL, CH]
+kryptographie:
+  attrs: [KL, KL, IN]
+magiekunde:
+  attrs: [KL, KL, IN]
+mechanik:
+  attrs: [KL, KL, FF]
+pflanzenkunde:
+  attrs: [KL, IN, FF]
+philosophie:
+  attrs: [KL, KL, IN]
+rechnen:
+  attrs: [KL, KL, IN]
+rechtskunde:
+  attrs: [KL, KL, IN]
+sagen/legenden:
+  attrs: [KL, IN, CH]
+schätzen:
+  attrs: [KL, IN, IN]
+schaetzen:
+  attrs: [KL, IN, IN]
+sprachenkunde:
+  attrs: [KL, KL, IN]
+staatskunde:
+  attrs: [KL, IN, CH]
+sternkunde:
+  attrs: [KL, KL, IN]
+tierkunde:
+  attrs: [MU, KL, IN]
