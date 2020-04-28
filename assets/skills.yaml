@@ -6,9 +6,73 @@
   athletik:
     attrs: [GE, KO, KK]
     eBE: "x2"
+  fliegen:
+    attrs: [MU, IN, GE]
+    eBE: "x1"
+  gaukeleien
+    attrs: [MU, CH, FF]
+    eBE: "x2"
+  klettern:
+    attrs: [MU, GE, KK]
+    eBE: "x2"
+  körperbeherrschung:
+    attrs: [MU, IN, GE]
+    eBE: "x2"
+  reiten:
+    attrs: [CH, GE, KK]
+    #eBE: "x1 - 2"				SYNTAX_UNCLEAR
+  schleichen:
+    attrs: [MU, IN, GE]
+    eBE: "x1"
+  schwimmen:
+    attrs: [GE, KO, KK]
+    eBE: "x2"
+  selbstbeherrschung:
+    attrs: [MU, KO, KK]
+    eBE: "0"
+  sich_verstecken:
+    attrs: [MU, IN, GE]
+    #eBE: "x1 - 2"				SYNTAX_UNCLEAR
+  singen:
+    attrs: [IN, CH, CH]
+    #eBE: "x1 - 3"				SYNTAX_UNCLEAR
+  sinnenschärfe:
+    #attrs: [KL, IN, IN] oder [KL, IN, FF]	SYNTAX_UNCLEAR
+    #eBE: "0" oder "x1"				SYNTAX_UNCLEAR
+  skifahren:
+    attrs: [GE, GE, KO]
+    #eBE: "x1 - 2"				SYNTAX_UNCLEAR
+  stimmen_imitieren:
+    attrs: [KL, IN, CH]
+    #eBE: "x1 - 4"				SYNTAX_UNCLEAR
+  tanzen:
+    attrs: [CH, GE, GE]
+    eBE: "x2"
+  taschendiebstahl:
+    attrs: [MU, IN, FF]
+    eBE: "x2"
+  zechen:
+    attrs: [IN, KO, KK]
+    eBE: "0"
 # Gesellschaftliche Talent
   betoeren:
     attrs: [IN, CH, CH] 
   etikette:
+    attrs: [KL, IN, CH]
+  gassenwissen:
+    attrs: [KL, IN, CH]
+  lehren:
+    attrs: [KL, IN, CH]
+  menschenkenntnis:
+    attrs: [KL, IN, CH]
+  schauspielerei:
+    attrs: [MU, IN, CH]
+  schriftlicher_ausdruck:
+    attrs: [KL, IN, IN]
+  sich_verkleiden:
+    attrs: [MU, CH, GE]
+  überreden:
+    attrs: [MU, IN, CH]
+  überzeugen:
     attrs: [KL, IN, CH]
 # Natur Talente
