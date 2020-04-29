@@ -151,3 +151,108 @@ sternkunde:
   attrs: [KL, KL, IN]
 tierkunde:
   attrs: [MU, KL, IN]
+#Handwerks Talente
+abrichten:
+  attrs: [MU, IN, CH]
+ackerbau:
+  attrs: [IN, FF, KO]
+alchimie:
+  attrs: [MU, KL, FF]
+bergbau:
+  attrs: [IN, KO, KK]
+bogenbau:
+  attrs: [KL, IN, FF]
+boote_fahren:
+  attrs: [GE, KO, KK]
+brauer:
+  attrs: [KL, FF, KK]
+drucker:
+  attrs: [KL, FF, KK]
+fahrzeug_lenken:
+  attrs: [IN, CH, FF]
+falschspiel:
+  attrs: [MU, CH, FF]
+feinmechanik:
+  attrs: [KL, FF, FF]
+feuersteinbearbeitung:
+  attrs: [KL, FF, FF]
+fleischer:
+  attrs: [KL, FF, KK]
+gerber/kürschner:
+  attrs: [KL, FF, KO]
+gerber/kuerschner:
+  attrs: [KL, FF, KO]
+glaskunst:
+  attrs: [FF, FF, KO]
+grobschmied:
+  attrs: [FF, KO, KK]
+handel:
+  attrs: [KL, IN, CH]
+hauswirtschaft:
+  attrs: [IN, CH, FF]
+heilkunde_gift:
+  attrs: [MU, KL, IN]
+heilkunde_krankheiten:
+  attrs: [MU, KL, CH]
+heilkunde_seele:
+  attrs: [IN, CH, CH]
+heilkunde_wunden:
+  attrs: [KL, CH, FF]
+holzbearbeitung:
+  attrs: [KL, FF, KK]
+instrumentenbauer:
+  attrs: [KL, IN, FF]
+kartographie:
+  attrs: [KL, KL, FF]
+kochen:
+  attrs: [KL, IN, FF]
+kristallzucht:
+  attrs: [KL, IN, FF]
+lederarbeiten:
+  attrs: [KL, FF, FF]
+malen/zeichnen:
+  attrs: [KL, IN, FF]
+maurer:
+  attrs: [FF, GE, KK]
+metallguss:
+  attrs: [KL, FF, KK]
+musizieren:
+  attrs: [IN, CH, FF]
+schlösser_knacken:
+  attrs: [IN, FF, FF]
+schloesser_knacken:
+  attrs: [IN, FF, FF]
+schnaps_brennen:
+  attrs: [KL, IN, FF]
+schneidern:
+  attrs: [KL, FF, FF]
+seefahrt:
+  attrs: [FF, GE, KK]
+seiler:
+  attrs: [FF, FF, KK]
+steinmetz:
+  attrs: [FF, FF, KK]
+steinschneider/juwelier:
+  attrs: [IN, FF, FF]
+stellmacher:
+  attrs: [KL, FF, KK]
+stoffe_färben:
+  attrs: [KL, FF, KK]
+stoffe_faerben:
+  attrs: [KL, FF, KK]
+tätowieren:
+  attrs: [IN, FF, FF]
+taetowieren:
+  attrs: [IN, FF, FF]
+töpfern:
+  attrs: [KL, FF, FF]
+toepfern:
+  attrs: [KL, FF, FF]
+viehzucht:
+  attrs: [KL, IN, KK]
+webkunst:
+  attrs: [FF, FF, KK]
+winzer:
+  attrs: [KL, FF, KK]
+zimmermann:
+  attrs: [KL, FF, KK]
