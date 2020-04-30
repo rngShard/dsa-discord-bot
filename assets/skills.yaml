@@ -90,7 +90,15 @@ fallenstellen:
   attrs: [KL, FF, KK]
 fesseln/entfesseln:
   attrs: [FF, GE, KK]
+fesseln_entfesseln:
+  attrs: [FF, GE, KK]
+fesseln:
+  attrs: [FF, GE, KK]
+entfesseln:
+  attrs: [FF, GE, KK]
 fischen/angeln:
+  attrs: [IN, FF, KK]
+fischen_angeln:
   attrs: [IN, FF, KK]
 orientierung:
   attrs: [KL, IN, IN]
@@ -103,7 +111,11 @@ anatomie:
   attrs: [MU, KL, FF]
 baukunst:
   attrs: [KL, KL, FF]
-brett-/kartenspiel
+brett-/kartenspiel:
+  attrs: [KL, KL, IN]
+brett_kartenspiel:
+  attrs: [KL, KL, IN]
+brett:
   attrs: [KL, KL, IN]
 geographie:
   attrs: [KL, KL, IN]
@@ -114,6 +126,10 @@ gesteinskunde:
 götter/kulte:
   attrs: [KL, KL, IN]
 goetter/kulte:
+  attrs: [KL, KL, IN]
+götter_kulte:
+  attrs: [KL, KL, IN]
+goetter_kulte:
   attrs: [KL, KL, IN]
 heraldik:
   attrs: [KL, KL, FF]
@@ -138,6 +154,8 @@ rechnen:
 rechtskunde:
   attrs: [KL, KL, IN]
 sagen/legenden:
+  attrs: [KL, IN, CH]
+sagen_legenden:
   attrs: [KL, IN, CH]
 schätzen:
   attrs: [KL, IN, IN]
@@ -170,6 +188,8 @@ drucker:
   attrs: [KL, FF, KK]
 fahrzeug_lenken:
   attrs: [IN, CH, FF]
+wagen_lenken:
+  attrs: [IN, CH, FF]
 falschspiel:
   attrs: [MU, CH, FF]
 feinmechanik:
@@ -181,6 +201,14 @@ fleischer:
 gerber/kürschner:
   attrs: [KL, FF, KO]
 gerber/kuerschner:
+  attrs: [KL, FF, KO]
+gerber_kürschner:
+  attrs: [KL, FF, KO]
+gerber_kuerschner:
+  attrs: [KL, FF, KO]
+gerber:
+  attrs: [KL, FF, KO]
+kuerschner:
   attrs: [KL, FF, KO]
 glaskunst:
   attrs: [FF, FF, KO]
@@ -233,6 +261,8 @@ seiler:
 steinmetz:
   attrs: [FF, FF, KK]
 steinschneider/juwelier:
+  attrs: [IN, FF, FF]
+steinschneider_juwelier:
   attrs: [IN, FF, FF]
 stellmacher:
   attrs: [KL, FF, KK]
