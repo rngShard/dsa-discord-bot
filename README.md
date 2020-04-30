@@ -3,30 +3,46 @@
 This bot shall be used for the German P&P role-playing game "The Dark Eye" (German: "Das Schwarze Auge (DSA)") when being played on a Discord-Server.
 
 Included functionality:
-- [nothing so far]
+- `.roll` : simple skill-check rolling (with "3d20" / "1W6")
+- `.check` : storing charakter-sheets with attributes & check for skills, auto-filling attributes 
 - WIP:
-	- Creating & storing charakter-sheets
-	- Rolling skill-checks based on character attributes
+	- managing charakter-sheet entries
 	- Playing music playlist created before-hand for DM only (Sources: Youtube, Google Play Music)
 
 
 ## Setup
 
 Requirements:
+- [Git](https://git-scm.com/)
 - [Python3](https://www.python.org/downloads/)
+
+Recommended Software:
+- [VSCode](https://code.visualstudio.com/) as IDE
+- [TortoiseGit](https://tortoisegit.org/) for easier usage of Git (on Windows)
 
 Getting Started:
 Use [venv](https://medium.com/python-pandemonium/better-python-dependency-and-package-management-b5d8ea29dff1) to install dependencies, provide config details and start bot.
 
-On Windows:
+Initial Setup on Windows:
 ```bash
+mkdir .venv
+py -m  venv .venv		# create venv
 .\.venv\Scripts\activate		# enter venv
 pip3 install -r .\requirements.txt		# install dependencies
-cp config.yaml.example config.yaml		# make copy of config-file
+copy config.yaml.example config.yaml		# make copy of config-file
 # add details in config.yaml
 python .\bot\bot.py		# start bot
 ```
-
+Initial Setup on Linux:
+```bash
+mkdir .venv
+python3 -m venv .venv
+source .venv/bin/activate
+pip3 install install -r ./requirements.txt
+cp config.yaml.example config.yaml
+# add details in config.yaml
+python3 bot/bot.py		# start bot
+```
 
 ## Developer Information & Tips
 
