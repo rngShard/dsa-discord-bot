@@ -12,7 +12,8 @@ ASSETS_DIR = os.path.join(DIR_NAME, '../../assets')
 
 CHECKS = {
     'ATTRIBUTES': yaml.full_load(open(os.path.join(ASSETS_DIR, 'attributes.yaml'))),
-    'SKILLS': yaml.full_load(open(os.path.join(ASSETS_DIR, 'skills.yaml')))
+    'SKILLS': yaml.full_load(open(os.path.join(ASSETS_DIR, 'skills.yaml'))),
+    'SPELLS': yaml.full_load(open(os.path.join(ASSETS_DIR, 'spells.yaml')))
 }
 
 class SkillCheck:
@@ -64,6 +65,10 @@ class CharacterAction(commands.Cog):
         return "+" if num >= 0 else ""
   
     @commands.command()
+    async def c(self, ctx, check: str, difficulty = 0):
+        await self.check(ctx, check, difficulty, 'CTX_AUTHOR_DISPLAY_NAME')
+
+    @commands.command()
     async def check(self, ctx, check: str, difficulty = 0, char = 'CTX_AUTHOR_DISPLAY_NAME'):
         """Check Kopfwert / Talent for character"""
         char_obj = None
@@ -108,6 +113,19 @@ class CharacterAction(commands.Cog):
 
             await ctx.send(f'<{char}> Checking {check} {skill["attrs"]}={attrs} ({skill_value}) {self.pre(difficulty)}{difficulty}:\n{comment}Rolling {rolls} >> {msg}\nResult = {self.pre(res)}{res}')
         
+        elif check.lower() in CHECKS['SPELLS'].keys():
+            skill = CHECKS['SPELLS'][check.lower()]
+            attrs = [char_obj[attr] for attr in skill['attrs']]
+            try:
+                skill_value = char_obj[check.lower()]
+            except KeyError:
+                await ctx.send(f'<{char}> Cannot check {check}, because you do not know that spell.')
+                return
+
+            rolls, res, msg = SkillCheck.checkSkill(attrs, skill_value, difficulty)
+
+            await ctx.send(f'<{char}> Checking {check} {skill["attrs"]}={attrs} ({skill_value}) {self.pre(difficulty)}{difficulty}:\nRolling {rolls} >> {msg}\nResult = {self.pre(res)}{res}')
+
         else:
             logging.warning(f'Invalid .check command, args: {check}, {char}')
             await ctx.send(f'Error: "{check}" is not a valid check.')

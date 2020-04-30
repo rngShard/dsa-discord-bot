@@ -41,6 +41,10 @@ class DiceRoller(commands.Cog):
             await ctx.send(msg)
 
     @commands.command()
+    async def r(self, ctx, roll: str):
+        await self.roll(ctx, roll)
+
+    @commands.command()
     async def roll(self, ctx, roll: str):
         """Translate str into rolls"""
         r = re.compile(r'\d+[DdWw]\d+')
