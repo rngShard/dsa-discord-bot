@@ -1,0 +1,41 @@
+# Kopfwerte
+MU: 8
+KL: 8
+IN: 8
+CH: 8
+FF: 8
+GE: 8
+KO: 8
+KK: 8
+# Behinderung
+BE: 1
+# Körperliche Talente
+athletik: 0
+klettern: 0
+körperbeherrschung: 0
+schleichen: 0
+schwimmen: 0
+selbstbeherrschung: 0
+sich_verstecken: 0
+singen: 0
+sinnenschärfe: 0
+tanzen: 0
+zechen: 0
+# Gesellschaftliche Talente
+menschenkenntnis: 0
+überreden: 0
+# Natur Talente
+fährtensuchen: 0
+orientierung: 0
+wildnisleben: 0
+# Wissenstalente
+götter_kulte: 0
+rechnen: 0
+sagen_legenden: 0
+# Handwerkliche Talente
+heilkunde_wunden: 0
+holzbearbeitung: 0
+kochen: 0
+lederbearbeitung: 0
+malen_zeichnen: 0
+schneidern: 0
