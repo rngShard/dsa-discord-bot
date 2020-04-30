@@ -65,6 +65,10 @@ class CharacterAction(commands.Cog):
         return "+" if num >= 0 else ""
   
     @commands.command()
+    async def c(self, ctx, check: str, difficulty = 0):
+        await self.check(ctx, check, difficulty, 'CTX_AUTHOR_DISPLAY_NAME')
+
+    @commands.command()
     async def check(self, ctx, check: str, difficulty = 0, char = 'CTX_AUTHOR_DISPLAY_NAME'):
         """Check Kopfwert / Talent for character"""
         char_obj = None
