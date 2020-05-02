@@ -28,15 +28,19 @@ class SkillCheck:
         for _ in range(3):
             rolls.append(Dice.roll_dX(20))
         
-        msg = ""
+        msg, prevent_result = "", False
         if rolls.count(1) == 2:
             msg = "Critical success!"
+            prevent_result = True
         elif rolls.count(1) == 3:
             msg = "Whaaaaaaaaaaaaaaaaat?!?!?"
+            prevent_result = True
         elif rolls.count(20) == 2:
             msg = "Epic failure ..."
+            prevent_result = True
         elif rolls.count(20) == 3:
             msg = "You dead son."
+            prevent_result = True
         else:
             for i in range(3):
                 if rolls[i] > attrs[i]:
@@ -47,7 +51,7 @@ class SkillCheck:
                 msg = "Success! (Close one...)"
             else:
                 msg = "Success!"
-        return rolls, min(e_value, skill_value), msg
+        return rolls, min(e_value, skill_value), msg, prevent_result
     @staticmethod
     def getTrueBE(BE: int, eBE: str):
         if re.compile(r'x\d').match(eBE):
@@ -109,9 +113,10 @@ class CharacterAction(commands.Cog):
             except KeyError:
                 pass    # no BE to be accounted for
             
-            rolls, res, msg = SkillCheck.checkSkill(attrs, skill_value, difficulty)
+            rolls, res, msg, prevent_result = SkillCheck.checkSkill(attrs, skill_value, difficulty)
+            results_msg = '' if prevent_result else f'\nResult = {self.pre(res)}{res}'
 
-            await ctx.send(f'<{char}> Checking {check} {skill["attrs"]}={attrs} ({skill_value}) {self.pre(difficulty)}{difficulty}:\n{comment}Rolling {rolls} >> {msg}\nResult = {self.pre(res)}{res}')
+            await ctx.send(f'<{char}> Checking {check} {skill["attrs"]}={attrs} ({skill_value}) {self.pre(difficulty)}{difficulty}:\n{comment}Rolling {rolls} >> {msg}{results_msg}')
         
         elif check.lower() in CHECKS['SPELLS'].keys():
             skill = CHECKS['SPELLS'][check.lower()]
@@ -122,9 +127,10 @@ class CharacterAction(commands.Cog):
                 await ctx.send(f'<{char}> Cannot check {check}, because you do not know that spell.')
                 return
 
-            rolls, res, msg = SkillCheck.checkSkill(attrs, skill_value, difficulty)
+            rolls, res, msg, prevent_result = SkillCheck.checkSkill(attrs, skill_value, difficulty)
+            results_msg = '' if prevent_result else f'\nResult = {self.pre(res)}{res}'
 
-            await ctx.send(f'<{char}> Checking {check} {skill["attrs"]}={attrs} ({skill_value}) {self.pre(difficulty)}{difficulty}:\nRolling {rolls} >> {msg}\nResult = {self.pre(res)}{res}')
+            await ctx.send(f'<{char}> Checking {check} {skill["attrs"]}={attrs} ({skill_value}) {self.pre(difficulty)}{difficulty}:\nRolling {rolls} >> {msg}{results_msg}')
 
         else:
             logging.warning(f'Invalid .check command, args: {check}, {char}')
