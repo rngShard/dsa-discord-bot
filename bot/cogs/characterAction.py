@@ -129,3 +129,47 @@ class CharacterAction(commands.Cog):
         else:
             logging.warning(f'Invalid .check command, args: {check}, {char}')
             await ctx.send(f'Error: "{check}" is not a valid check.')
+
+    @commands.command()
+    async def reg(self, ctx, check: str, difficulty=0):
+        await self.regenerate(ctx, check, difficulty, 'CTX_AUTHOR_DISPLAY_NAME')
+
+    @commands.command()
+    async def regenerate(self, ctx, char='CTX_AUTHOR_DISPLAY_NAME'):
+        """Check Regeneration for character"""
+        char_obj = None
+        if char == 'CTX_AUTHOR_DISPLAY_NAME':
+            char = ctx.author.display_name
+        char_files = os.listdir(CHAR_DIR)
+        if f'{char}.yaml' not in char_files:
+            await ctx.send(
+                f'Errors: No character-file found for character "{char}". Did you provide a "{char}.yaml" file?')
+            return
+        else:
+            char_obj = yaml.full_load(open(os.path.join(CHAR_DIR, f'{char}.yaml')))
+
+        reg_asp=0
+        reg_le=0
+        reg_kap=0 # change to 1 if priest
+
+        #additional regeneration rules: WdS 161
+
+        # lifereg
+        reg_le+=Dice.roll_dX(6) # regularreg
+        if Dice.roll_dX(20)<=char_obj['KO']: # check if KO-check is succesful
+            reg_le+=1
+        # add character SF's (healing I/II/III - bad_healing I/II/III)
+
+        #asp-reg
+        # if not masterreg:
+        reg_asp+=Dice.roll_dX(6)
+        if Dice.roll_dX(20)<=char_obj['IN']: # check if IN-check is succesful
+            reg_asp+=1
+        # add character SF's (reg I, reg II, masterreg, astral_reg I/II/III)
+        # regreg + adv - disadv + SF_reg
+        # else: change with masterregrules
+
+        #ka-reg
+        reg_kap+=1 # if priest
+
+        await ctx.send(f'<{char}> regenerated:\nLE:{reg_le}\nAsP:{reg_asp} - (if mage)\nKaP:{reg_kap} - (if priest)\nREMEMBER: regeneration modifiers not implemented yet!')
