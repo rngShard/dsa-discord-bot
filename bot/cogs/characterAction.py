@@ -30,13 +30,13 @@ class SkillCheck:
         
         msg = ""
         if rolls.count(1) == 2:
-            msg = "Critical success!"
+            msg = "Critical success! (thanks to 2x1)"
         elif rolls.count(1) == 3:
-            msg = "Whaaaaaaaaaaaaaaaaat?!?!?"
+            msg = "Whaaaaaaaaaaaaaaaaat?!?!? (thanks to 3x1)"
         elif rolls.count(20) == 2:
-            msg = "Epic failure ..."
+            msg = "Epic failure ... (due to 2x20)"
         elif rolls.count(20) == 3:
-            msg = "You dead son."
+            msg = "You dead son. (due to 3x20)"
         else:
             for i in range(3):
                 if rolls[i] > attrs[i]:
@@ -111,7 +111,7 @@ class CharacterAction(commands.Cog):
             
             rolls, res, msg = SkillCheck.checkSkill(attrs, skill_value, difficulty)
 
-            await ctx.send(f'<{char}> Checking {check} {skill["attrs"]}={attrs} ({skill_value}) {self.pre(difficulty)}{difficulty}:\n{comment}Rolling {rolls} >> {msg}\nResult = {self.pre(res)}{res}')
+            await ctx.send(f'<{char}> Checking {check} {skill["attrs"]}={attrs} ({skill_value}) {self.pre(difficulty)}{difficulty}:\n{comment}Rolling {rolls}\nResult = {self.pre(res)}{res} >> {msg}')
         
         elif check.lower() in CHECKS['SPELLS'].keys():
             skill = CHECKS['SPELLS'][check.lower()]
@@ -129,3 +129,58 @@ class CharacterAction(commands.Cog):
         else:
             logging.warning(f'Invalid .check command, args: {check}, {char}')
             await ctx.send(f'Error: "{check}" is not a valid check.')
+
+    @commands.command()
+    async def reg(self, ctx):
+        await self.regenerate(ctx, 'CTX_AUTHOR_DISPLAY_NAME')
+
+    @commands.command(pass_context=True)
+    async def regenerate(self, ctx, char='CTX_AUTHOR_DISPLAY_NAME'):
+        """Check Regeneration for character"""
+        char_obj = None
+        if char == 'CTX_AUTHOR_DISPLAY_NAME':
+            char = ctx.author.display_name
+        char_files = os.listdir(CHAR_DIR)
+        if f'{char}.yaml' not in char_files:
+            await ctx.send(
+                f'Errors: No character-file found for character "{char}". Did you provide a "{char}.yaml" file?')
+            return
+        else:
+            char_obj = yaml.full_load(open(os.path.join(CHAR_DIR, f'{char}.yaml')))
+
+        reg_asp=0
+        reg_le=0
+        reg_kap=0 # change to 1 if priest
+
+        #additional regeneration rules: WdS 161
+
+        # lifereg
+        reg_le+=Dice.roll_dX(6) # regularreg
+        if Dice.roll_dX(20)<=char_obj['KO']: # check if KO-check is succesful
+            reg_le+=1
+        # add character SF's (healing I/II/III - bad_healing I/II/III)
+
+        #asp-reg
+        # if not masterreg:
+        reg_asp+=Dice.roll_dX(6)
+        if Dice.roll_dX(20)<=char_obj['IN']: # check if IN-check is succesful
+            reg_asp+=1
+        # add character SF's (reg I, reg II, masterreg, astral_reg I/II/III)
+        # regreg + adv - disadv + SF_reg
+        # else: change with masterregrules
+
+        #ka-reg
+        reg_kap+=1 # if priest
+
+        author=char
+        embed = discord.embeds.Embed(
+            colour = discord.colour.Colour.orange()
+        )
+
+        embed.set_author(name=f'regeneration')
+        embed.add_field(name=f'LE', value=f'{reg_le}')
+        embed.add_field(name=f'AsP', value=f'{reg_asp}')
+        embed.add_field(name=f'KaP', value=f'{reg_kap}')
+        await ctx.send(author,embed=embed)
+        # plain-text without embed:
+        # await ctx.send(f'<{char}>\nregenerated:\n-**LE: {reg_le}**\n-**AsP: {reg_asp}** (if mage)\n-**KaP: {reg_kap}** (if priest)\nREMEMBER: regeneration modifiers not implemented yet!')
