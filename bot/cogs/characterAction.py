@@ -134,7 +134,7 @@ class CharacterAction(commands.Cog):
     async def reg(self, ctx):
         await self.regenerate(ctx, 'CTX_AUTHOR_DISPLAY_NAME')
 
-    @commands.command()
+    @commands.command(pass_context=True)
     async def regenerate(self, ctx, char='CTX_AUTHOR_DISPLAY_NAME'):
         """Check Regeneration for character"""
         char_obj = None
@@ -172,4 +172,15 @@ class CharacterAction(commands.Cog):
         #ka-reg
         reg_kap+=1 # if priest
 
-        await ctx.send(f'<{char}>\nregenerated:\n-**LE: {reg_le}**\n-**AsP: {reg_asp}** (if mage)\n-**KaP: {reg_kap}** (if priest)\nREMEMBER: regeneration modifiers not implemented yet!')
+        author=char
+        embed = discord.embeds.Embed(
+            colour = discord.colour.Colour.orange()
+        )
+
+        embed.set_author(name=f'regeneration')
+        embed.add_field(name=f'LE', value=f'{reg_le}')
+        embed.add_field(name=f'AsP', value=f'{reg_asp}')
+        embed.add_field(name=f'KaP', value=f'{reg_kap}')
+        await ctx.send(author,embed=embed)
+        # plain-text without embed:
+        # await ctx.send(f'<{char}>\nregenerated:\n-**LE: {reg_le}**\n-**AsP: {reg_asp}** (if mage)\n-**KaP: {reg_kap}** (if priest)\nREMEMBER: regeneration modifiers not implemented yet!')
