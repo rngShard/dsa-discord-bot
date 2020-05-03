@@ -30,13 +30,13 @@ class SkillCheck:
         
         msg = ""
         if rolls.count(1) == 2:
-            msg = "Critical success!"
+            msg = "Critical success! (thanks to 2x1)"
         elif rolls.count(1) == 3:
-            msg = "Whaaaaaaaaaaaaaaaaat?!?!?"
+            msg = "Whaaaaaaaaaaaaaaaaat?!?!? (thanks to 3x1)"
         elif rolls.count(20) == 2:
-            msg = "Epic failure ..."
+            msg = "Epic failure ... (due to 2x20)"
         elif rolls.count(20) == 3:
-            msg = "You dead son."
+            msg = "You dead son. (due to 3x20)"
         else:
             for i in range(3):
                 if rolls[i] > attrs[i]:
@@ -111,7 +111,7 @@ class CharacterAction(commands.Cog):
             
             rolls, res, msg = SkillCheck.checkSkill(attrs, skill_value, difficulty)
 
-            await ctx.send(f'<{char}> Checking {check} {skill["attrs"]}={attrs} ({skill_value}) {self.pre(difficulty)}{difficulty}:\n{comment}Rolling {rolls} >> {msg}\nResult = {self.pre(res)}{res}')
+            await ctx.send(f'<{char}> Checking {check} {skill["attrs"]}={attrs} ({skill_value}) {self.pre(difficulty)}{difficulty}:\n{comment}Rolling {rolls}\nResult = {self.pre(res)}{res} >> {msg}')
         
         elif check.lower() in CHECKS['SPELLS'].keys():
             skill = CHECKS['SPELLS'][check.lower()]
