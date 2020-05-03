@@ -131,8 +131,8 @@ class CharacterAction(commands.Cog):
             await ctx.send(f'Error: "{check}" is not a valid check.')
 
     @commands.command()
-    async def reg(self, ctx, check: str, difficulty=0):
-        await self.regenerate(ctx, check, difficulty, 'CTX_AUTHOR_DISPLAY_NAME')
+    async def reg(self, ctx):
+        await self.regenerate(ctx, 'CTX_AUTHOR_DISPLAY_NAME')
 
     @commands.command()
     async def regenerate(self, ctx, char='CTX_AUTHOR_DISPLAY_NAME'):
@@ -172,4 +172,4 @@ class CharacterAction(commands.Cog):
         #ka-reg
         reg_kap+=1 # if priest
 
-        await ctx.send(f'<{char}> regenerated:\nLE:{reg_le}\nAsP:{reg_asp} - (if mage)\nKaP:{reg_kap} - (if priest)\nREMEMBER: regeneration modifiers not implemented yet!')
+        await ctx.send(f'<{char}>\nregenerated:\n-**LE: {reg_le}**\n-**AsP: {reg_asp}** (if mage)\n-**KaP: {reg_kap}** (if priest)\nREMEMBER: regeneration modifiers not implemented yet!')
