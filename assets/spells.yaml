@@ -165,6 +165,8 @@
     attrs: [MU, KL, GE]
   flim:
     attrs: [KL, KL, FF]
+  flim_flam:
+    attrs: [KL, KL, FF]
   fluch:
     attrs: [MU, KL, CH]
   foramen:
