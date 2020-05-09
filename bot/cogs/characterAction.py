@@ -29,15 +29,20 @@ class SkillCheck:
         for _ in range(3):
             rolls.append(Dice.roll_dX(20))
 
-        msg = ""
+        msg, prevent_result = "", False
         if rolls.count(1) == 2:
             msg = "Critical success! (thanks to 2x1)"
+            prevent_result = True
         elif rolls.count(1) == 3:
             msg = "Whaaaaaaaaaaaaaaaaat?!?!? (thanks to 3x1)"
+            prevent_result = True
         elif rolls.count(20) == 2:
             msg = "Epic failure ... (due to 2x20)"
+            prevent_result = True
         elif rolls.count(20) == 3:
             msg = "You dead son. (due to 3x20)"
+            prevent_result = True
+        
         else:
             for i in range(3):
                 if rolls[i] > attrs[i]:
@@ -48,7 +53,8 @@ class SkillCheck:
                 msg = "Success! (Close one...)"
             else:
                 msg = "Success!"
-        return rolls, min(e_value, skill_value), msg
+
+        return rolls, min(e_value, skill_value), msg, prevent_result
 
     @staticmethod
     def getTrueBE(BE: int, eBE: str):
@@ -132,14 +138,16 @@ class CharacterAction(commands.Cog):
             except KeyError:
                 pass  # no BE to be accounted for
 
-            rolls, res, msg = SkillCheck.checkSkill(attrs, skill_value, difficulty)
+            rolls, res, msg, prevent_result = SkillCheck.checkSkill(attrs, skill_value, difficulty)
 
             embed.add_field(name=f'Value:', value=f'{skill_value}', inline=True, )
             embed.add_field(name=f'Modifier:', value=f'{difficulty}\n{comment}', inline=True)
             embed.add_field(name=f'Properties', value=f'{skill["attrs"]}', inline=False)
             embed.add_field(name=f'Properties', value=f'{attrs}', inline=True)
             embed.add_field(name='Rolls:', value=f'{rolls}', inline=True)
-            embed.add_field(name='Result:', value=f'**{res} >> {msg}**', inline=False)
+            if not prevent_result:
+                embed.add_field(name='Result:', value=f'**{res} >> {msg}**', inline=False)
+
             await ctx.send(embed=embed)
 
         elif check.lower() in CHECKS['SPELLS'].keys():
@@ -152,7 +160,7 @@ class CharacterAction(commands.Cog):
                 await ctx.send(embed=embed)
                 return
 
-            rolls, res, msg = SkillCheck.checkSkill(attrs, skill_value, difficulty)
+            rolls, res, msg, prevent_result = SkillCheck.checkSkill(attrs, skill_value, difficulty)
 
             embed.add_field(name=f'Value:', value=f'{skill_value}', inline=True, )
             embed.add_field(name=f'Modifier:', value=f'{difficulty}', inline=True)

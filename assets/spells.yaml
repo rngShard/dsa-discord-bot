@@ -3,3 +3,573 @@
     attrs: [KL, KL, FF]
   abvenenum:
     attrs: [KL, KL, FF]
+  accuratum_zaubernadel:
+    attrs: [KL, CH, FF]
+  accuratum:
+    attrs: [KL, CH, FF]
+  adamantium_erzstruktur:
+    attrs: [KL, FF, KO]
+  adamantium:
+    attrs: [KL, FF, KO]
+  adlerauge_luchsenohr:
+    attrs: [KL, IN, FF]
+  adlerauge:
+    attrs: [KL, IN, FF]
+  adlerschwinge:
+    attrs: [MU, IN, GE]
+  aeolitus:
+    attrs: [KL, CH, KO]
+  aerofugo:
+    attrs: [MU, KO, KK]
+  aerogelo:
+    attrs: [MU, IN, KO]
+  alpgestalt:
+    attrs: [MU, CH, GE]
+  analys:
+    attrs: [KL, KL, IN]
+  ängste:
+    attrs: [MU, IN, CH]
+  animatio:
+    attrs: [KL, FF, GE]
+  applicatus:
+    attrs: [KL, FF, FF]
+  arachnea:
+    attrs: [MU, IN, CH]
+  arcanovi:
+    attrs: [KL, KL, FF]
+  armatrutz:
+    attrs: [IN, GE, KO]
+  atemnot:
+    attrs: [MU, KO, KK]
+  attributo_mu:
+    attrs: [KL, CH, MU]
+  attributo_ch:
+    attrs: [KL, CH, CH]
+  attributo_ff:
+    attrs: [KL, CH, FF]
+  attributo_kl:
+    attrs: [KL, CH, KL]
+  attributo_in:
+    attrs: [KL, CH, IN]
+  attributo_ko:
+    attrs: [KL, CH, KO]
+  attributo_ge:
+    attrs: [KL, CH, GE]
+  attributo_kk:
+    attrs: [KL, CH, KK]
+  aufgeblasen:
+    attrs: [CH, KO, KK]
+  auge:
+    attrs: [MU, KO, KK]
+  aureolus:
+    attrs: [IN, CH, FF]
+  auris:
+    attrs: [KL, CH, FF]
+  axxeleratus:
+    attrs: [KL, GE, KO]
+  balsam:
+    attrs: [KL, IN, CH]
+  band:
+    attrs: [KL, CH, KK]
+  bannbaladin:
+    attrs: [IN, CH, CH]
+  bärenruhe:
+    attrs: [MU, KO, KK]
+  beherrschung:
+    attrs: [KL, IN, CH]
+  beschwörung:
+    attrs: [MU, IN, CH]
+  bewegung:
+    attrs: [KL, IN, FF]
+  blendwerk:
+    attrs: [IN, CH, GE]
+  blick_wesen:
+    attrs: [KL, IN, CH]
+  blick_augen:
+    attrs: [MU, IN, CH]
+  blick_gedanken:
+    attrs: [KL, KL, CH]
+  blick_vergangenheit:
+    attrs: [KL, KL, IN]
+  blitz:
+    attrs: [KL, IN, GE]
+  böser:
+    attrs: [MU, CH, CH]
+  brenne:
+    attrs: [MU, KL, KO]
+  caldofrigo:
+    attrs: [IN, CH, KO]
+  chaemaelioni:
+    attrs: [IN, CH, GE]
+  chimaeroform:
+    attrs: [KL, IN, KO]
+  chronoklassis:
+    attrs: [KL, IN, KO]
+  chrononautos:
+    attrs: [MU, CH, KO]
+  claudibus:
+    attrs: [KL, FF, KK]
+  corpofesso:
+    attrs: [KL, KO, KK]
+  corpofrigo:
+    attrs: [CH, GE, KO]
+  cryptographo:
+    attrs: [KL, KL, IN]
+  custodosigil:
+    attrs: [KL, FF, FF]
+  dämonenbann:
+    attrs: [MU, CH, KO]
+  delicoso:
+    attrs: [KL, CH, FF]
+  desintegratus:
+    attrs: [KL, KO, KK]
+  destructibo:
+    attrs: [KL, KL, FF]
+  dichter:
+    attrs: [KL, IN, CH]
+  dschinnenruf:
+    attrs: [MU, KL, CH]
+  dunkelheit:
+    attrs: [KL, KL, FF]
+  duplicatus:
+    attrs: [KL, CH, GE]
+  ecliptifactus:
+    attrs: [MU, KL, KO]
+  eigenschaft:
+    attrs: [KL, IN, CH]
+  eigne:
+    attrs: [MU, IN, CH]
+  einfluss:
+    attrs: [IN, CH, CH]
+  eins:
+    attrs: [IN, GE, KO]
+  eisenrost:
+    attrs: [KL, CH, GE]
+  eiseskälte:
+    attrs: [MU, IN, KO]
+  elementarbann:
+    attrs: [IN, CH, KO]
+  elementarer:
+    attrs: [MU, KL, CH]
+  elfenstimme:
+    attrs: [IN, CH, KO]
+  erinnerung:
+    attrs: [MU, IN, CH]
+  exposami:
+    attrs: [KL, IN, IN]
+  falkenauge:
+    attrs: [IN, FF, GE]
+  favilludo:
+    attrs: [IN, CH, FF]
+  firnlauf:
+    attrs: [MU, KL, GE]
+  flim:
+    attrs: [KL, KL, FF]
+  flim_flam:
+    attrs: [KL, KL, FF]
+  fluch:
+    attrs: [MU, KL, CH]
+  foramen:
+    attrs: [KL, KL, FF]
+  fortifex:
+    attrs: [IN, KO, KK]
+  fulminictus:
+    attrs: [IN, GE, KO]
+  gardianum:
+    attrs: [KL, IN, KO]
+  gedankenbilder:
+    attrs: [KL, IN, CH]
+  gefäss:
+    attrs: [MU, KL, KO]
+  gefunden:
+    attrs: [KL, IN, GE]
+  geisterbann:
+    attrs: [MU, MU, CH]
+  geisterruf:
+    attrs: [MU, MU, CH]
+  granit:
+    attrs: [MU, CH, KO]
+  gier:
+    attrs: [KL, KL, CH]
+  verwirrung:
+    attrs: [KL, KL, CH]
+  halluzination:
+    attrs: [KL, IN, CH]
+  harmlose:
+    attrs: [KL, CH, GE]
+  hartes:
+    attrs: [MU, KL, KK]
+  haselbusch:
+    attrs: [CH, FF, KO]
+  heilkraft:
+    attrs: [KL, CH, FF]
+  hellsicht:
+    attrs: [KL, IN, CH]
+  herbeirufung:
+    attrs: [MU, IN, CH]
+  herr:
+    attrs: [MU, MU, CH]
+  herzschlag:
+    attrs: [MU, CH, KK]
+  hexenblick:
+    attrs: [IN, IN, CH]
+  hexengalle:
+    attrs: [MU, IN, CH]
+  hexenholz:
+    attrs: [KL, FF, KK]
+  hexenknoten:
+    attrs: [KL, IN, CH]
+  hexenkrallen:
+    attrs: [MU, IN, KO]
+  hexenspeichel:
+    attrs: [IN, CH, FF]
+  hilfreiche:
+    attrs: [MU, IN, CH]
+  höllenpein:
+    attrs: [KL, CH, KO]
+  holterdipolter:
+    attrs: [IN, IN, FF]
+  horriphobus:
+    attrs: [MU, IN, CH]
+  ignifaxius:
+    attrs: [KL, FF, KO]
+  igni:
+    attrs: [KL, FF, KO]
+  feufeu:
+    attrs: [KL, FF, KO]
+  feuerfrei:
+    attrs: [KL, FF, KO]
+  ignisphaero:
+    attrs: [MU, IN, KO]
+  feuerball:
+    attrs: [MU, IN, KO]
+  ignorantia:
+    attrs: [IN, CH, GE]
+  illusion:
+    attrs: [KL, IN, CH]
+  immortalis:
+    attrs: [MU, CH, KO]
+  imperavi:
+    attrs: [KL, CH, CH]
+  impersona:
+    attrs: [KL, IN, FF]
+  infinitum:
+    attrs: [KL, CH, KO]
+  invercano:
+    attrs: [MU, IN, FF]
+  invocatio_maior:
+    attrs: [MU, MU, CH]
+  maior:
+    attrs: [MU, MU, CH]
+  invocatio_minor:
+    attrs: [MU, MU, CH]
+  minor:
+    attrs: [MU, MU, CH]
+  iribaars:
+    attrs: [MU, MU, IN]
+  juckreiz:
+    attrs: [MU, IN, CH]
+  karnifilo:
+    attrs: [MU, IN, CH]
+  katzenaugen:
+    attrs: [KL, FF, KO]
+  klarum:
+    attrs: [KL, KL, CH]
+  klickeradomms:
+    attrs: [KL, FF, KK]
+  koboldgeschenk:
+    attrs: [IN, CH, FF]
+  koboldvision:
+    attrs: [MU, CH, CH]
+  komm:
+    attrs: [IN, IN, CH]
+  körperlose:
+    attrs: [MU, KL, IN]
+  krabbelnder:
+    attrs: [MU, MU, CH]
+  kraft:
+    attrs: [KL, KO, KK]
+  krähenruf:
+    attrs: [MU, CH, CH]
+  krötensprung:
+    attrs: [IN, GE, KK]
+  kulminatio:
+    attrs: [MU, IN, FF]
+  kusch:
+    attrs: [MU, IN, CH]
+  lach:
+    attrs: [IN, CH, CH]
+  lachkrampf:
+    attrs: [CH, CH, FF]
+  langer:
+    attrs: [CH, GE, KK]
+  last:
+    attrs: [IN, CH, KO]
+  leib_erde:
+    attrs: [MU, IN, GE]
+  leib_wogen:
+    attrs: [MU, KL, GE]
+  leib_eises:
+    attrs: [MU, KL, GE]
+  leib_erzes:
+    attrs: [MU, GE, KK]
+  leib_feuers:
+    attrs: [MU, MU, GE]
+  leib_windes:
+    attrs: [MU, GE, KK]
+  leidensbund:
+    attrs: [MU, IN, KO]
+  levthans:
+    attrs: [IN, CH, CH]
+  limbus:
+    attrs: [KL, IN, KO]
+  lockruf:
+    attrs: [IN, CH, FF]
+  lunge:
+    attrs: [IN, CH, KO]
+  madas:
+    attrs: [MU, KL, IN]
+  magischer:
+    attrs: [MU, KL, KO]
+  mahlstrom:
+    attrs: [MU, IN, KK]
+  manifesto:
+    attrs: [KL, IN, CH]
+  meister_elemente:
+    attrs: [MU, KL, CH]
+  meister_geister:
+    attrs: [MU, CH, CH]
+  memorabia:
+    attrs: [KL, IN, CH]
+  memorans:
+    attrs: [KL, KL, IN]
+  menetekel:
+    attrs: [KL, CH, FF]
+  metamagie:
+    attrs: [KL, KL, KO]
+  metamorpho:
+    attrs: [KL, FF, KK]
+  motoricus:
+    attrs: [KL, FF, KK]
+  movimento:
+    attrs: [IN, GE, KO]
+  murks:
+    attrs: [IN, IN, FF]
+  nackedei:
+    attrs: [KL, IN, FF]
+  nebelleib:
+    attrs: [MU, IN, KO]
+  nebelwand:
+    attrs: [KL, FF, KO]
+  nekropathia:
+    attrs: [MU, KL, CH]
+  nihilogravo:
+    attrs: [KL, KO, KK]
+  nuntiovolo:
+    attrs: [MU, KL, CH]
+  objecto:
+    attrs: [KL, FF, KO]
+  objectofixo:
+    attrs: [KL, KL, KK]
+  objectovoco:
+    attrs: [KL, IN, CH]
+  objekt:
+    attrs: [KL, IN, FF]
+  oculus:
+    attrs: [KL, IN, CH]
+  odem:
+    attrs: [KL, IN, IN]
+  pandaemonium:
+    attrs: [MU, MU, CH]
+  panik:
+    attrs: [MU, CH, CH]
+  papperlapapp:
+    attrs: [IN, IN, FF]
+  paralysis:
+    attrs: [IN, CH, KK]
+  pectetondo:
+    attrs: [KL, CH, FF]
+  penetrizzel:
+    attrs: [KL, KL, KO]
+  pentagramma:
+    attrs: [MU, MU, CH]
+  pestilenz:
+    attrs: [KL, IN, CH]
+  pfeil:
+    attrs: [KL, IN, CH]
+  planastrale:
+    attrs: [MU, MU, KO]
+  plumbumbarum:
+    attrs: [CH, GE, KK]
+  plumbum:
+    attrs: [CH, GE, KK]
+  projektimago:
+    attrs: [MU, IN, CH]
+  protectionis:
+    attrs: [KL, CH, KO]
+  psychostabilis:
+    attrs: [MU, KL, KO]
+  radau:
+    attrs: [MU, CH, KO]
+  reflectimago:
+    attrs: [KL, CH, FF]
+  reptilea:
+    attrs: [MU, IN, CH]
+  respondami:
+    attrs: [MU, IN, CH]
+  reversalis:
+    attrs: [KL, IN, CH]
+  ruhe:
+    attrs: [KL, CH, KO]
+  salander:
+    attrs: [KL, CH, KO]
+  sanftmut:
+    attrs: [MU, CH, CH]
+  sapefacta:
+    attrs: [KL, CH, FF]
+  satuarias:
+    attrs: [IN, CH, CH]
+  schabernack:
+    attrs: [KL, IN, CH]
+  schadenszauber:
+    attrs: [MU, IN, KO]
+  schelmenkleister:
+    attrs: [IN, FF, GE]
+  schelmenlaune:
+    attrs: [MU, IN, CH]
+  schelmenmaske:
+    attrs: [IN, CH, GE]
+  schelmenrausch:
+    attrs: [IN, CH, CH]
+  schleier:
+    attrs: [KL, KL, FF]
+  schwarz:
+    attrs: [MU, CH, KO]
+  schwarzer:
+    attrs: [MU, IN, CH]
+  seelentier:
+    attrs: [IN, IN, CH]
+  seelenwanderung:
+    attrs: [MU, CH, KO]
+  seidenweich:
+    attrs: [IN, FF, FF]
+  seidenzunge:
+    attrs: [KL, IN, CH]
+  sensattacco:
+    attrs: [MU, IN, GE]
+  sensibar:
+    attrs: [KL, IN, CH]
+  serpentialis:
+    attrs: [MU, CH, GE]
+  silentium:
+    attrs: [KL, IN, CH]
+  sinesigil:
+    attrs: [KL, IN, FF]
+  skelettarius:
+    attrs: [MU, MU, CH]
+  solidirid:
+    attrs: [IN, KO, KK]
+  somnigravis:
+    attrs: [KL, CH, CH]
+  spinnenlauf:
+    attrs: [IN, GE, KK]
+  spurlos:
+    attrs: [IN, GE, GE]
+  standfest:
+    attrs: [IN, FF, GE]
+  staub:
+    attrs: [MU, KL, CH]
+  stein:
+    attrs: [MU, CH, KK]
+  stillstand:
+    attrs: [MU, IN, GE]
+  sumus:
+    attrs: [IN, CH, FF]
+  tauschrausch:
+    attrs: [IN, FF, KO]
+  tempus:
+    attrs: [MU, KL, KK]
+  tiere:
+    attrs: [MU, IN, CH]
+  tiergedanken:
+    attrs: [MU, IN, CH]
+  tlalucs:
+    attrs: [MU, IN, GE]
+  totes:
+    attrs: [MU, CH, KO]
+  transformatio:
+    attrs: [KL, FF, KK]
+  transmutare:
+    attrs: [CH, GE, KO]
+  transversalis:
+    attrs: [KL, IN, KO]
+  traumgestalt:
+    attrs: [IN, CH, CH]
+  unberührt:
+    attrs: [KL, FF; KO]
+  unitatio:
+    attrs: [IN, CH, KO]
+  unsichtbarer:
+    attrs: [IN, FF, GE]
+  veränderung:
+    attrs: [KL, IN, KO]
+  verschwindibus:
+    attrs: [IN, CH, GE]
+  verständigung:
+    attrs: [KL, KL, IN]
+  verwandlung:
+    attrs: [KL, CH, FF]
+  vipernblick:
+    attrs: [MU, MU, CH]
+  visibili:
+    attrs: [KL, IN, GE]
+  vocolimbo:
+    attrs: [KL, CH, FF]
+  vogelzwitschern:
+    attrs: [MU, IN, GE]
+  wand:
+    attrs: [MU, KL, CH]
+  warmes:
+    attrs: [MU, IN, IN]
+  wasseratem:
+    attrs: [MU, KL, KO]
+  weiches:
+    attrs: [MU, KL, KK]
+  weihrauchwolke:
+    attrs: [IN, CH, FF]
+  weisheit:
+    attrs: [MU, IN, KO]
+  weisse:
+    attrs: [KL, IN, CH]
+  wellenlauf:
+    attrs: [MU, GE, GE]
+  wettermeisterschaft:
+    attrs: [MU, CH, GE]
+  widerwille:
+    attrs: [MU, IN, GE]
+  windhose:
+    attrs: [MU, IN, KK]
+  windstille:
+    attrs: [KL, CH, KK]
+  wipfellauf:
+    attrs: [MU, IN, GE]
+  xenographus:
+    attrs: [KL, KL, IN]
+  zagibu:
+    attrs: [IN, CH, FF]
+  zappenduster:
+    attrs: [IN, IN, FF]
+  zauberklinge:
+    attrs: [KL, FF, KO]
+  zaubernahrung:
+    attrs: [MU, MU, KO]
+  zauberwesen:
+    attrs: [MU, IN; CH]
+  zauberzwang:
+    attrs: [MU, CH, CH]
+  zorn:
+    attrs: [MU, CH, KO]
+  zunge:
+    attrs: [MU, CH, FF]
+  zwingtanz:
+    attrs: [MU, KL, CH]

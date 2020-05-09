@@ -80,6 +80,22 @@ class DiceRoller(commands.Cog):
                 await self.send_embed_roll(ctx, roll, roll_values)
 
     @commands.command()
+    async def r6(self, ctx):
+        roll = "1d6"
+        roll_values = Dice.roll_XdY(1, 6)
+        roll_value = roll_values[0]
+        self._last_roll = roll
+        await ctx.send(f'Rolling {roll}:\t{roll_value}')
+        
+    @commands.command()
+    async def r20(self, ctx):
+        roll = "1d20"
+        roll_values = Dice.roll_XdY(1, 20)
+        roll_value = roll_values[0]
+        self._last_roll = roll
+        await ctx.send(f'Rolling {roll}:\t{roll_value}')
+
+    @commands.command()
     async def reroll(self, ctx):
         if self._last_roll is None:
             await ctx.send('No rolls happened yet; cannot re-roll.')
